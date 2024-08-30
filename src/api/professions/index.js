@@ -1,6 +1,4 @@
-import {
-  listProfessionsController
-} from '~/src/api/professions/controllers/index.js'
+import { listProfessionsController } from '~/src/api/professions/controllers/index.js'
 
 const professions = {
   plugin: {

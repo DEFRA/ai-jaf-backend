@@ -28,7 +28,7 @@ module.exports = {
         'jsdoc',
         'n',
         'promise',
-        'prettier',
+        'prettier'
       ],
       rules: {
         'prettier/prettier': [
