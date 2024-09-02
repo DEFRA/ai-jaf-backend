@@ -1,4 +1,3 @@
-import schema from '~/src/api/jafs/schemas/create.js'
 import { getJafComparisonController } from '~/src/api/comparisons/controllers/index.js'
 
 const comparisons = {
@@ -10,7 +9,7 @@ const comparisons = {
           method: 'GET',
           path: '/comparisons/{id}',
           ...getJafComparisonController
-        },
+        }
       ])
     }
   }

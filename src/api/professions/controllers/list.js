@@ -2,8 +2,8 @@ import { professions } from '~/src/constants/professions.js'
 
 export const listProfessionsController = {
   handler: (request, h) => {
-    const professions = Object.values(professions)
+    const types = Object.values(professions)
 
-    return h.response(professions).code(200)
+    return h.response(types).code(200)
   }
 }

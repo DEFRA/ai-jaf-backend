@@ -1,4 +1,3 @@
-import schema from '~/src/api/jafs/schemas/create.js'
 import {
   listJafsController,
   createJafsController,

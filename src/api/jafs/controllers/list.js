@@ -7,7 +7,9 @@ export const listJafsController = {
   options: {
     validate: {
       query: Joi.object({
-        profession: Joi.string().optional().valid(...Object.values(professions))
+        profession: Joi.string()
+          .optional()
+          .valid(...Object.values(professions))
       })
     }
   },

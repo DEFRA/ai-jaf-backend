@@ -1,5 +1,8 @@
-import { addJaf, getJafs, getJaf } from '~/src/repos/jafs'
-import { addJafComparisons, getJafComparisons } from '~/src/repos/jaf-comparisons.js'
+import { addJaf, getJafs, getJaf } from '~/src/repos/jafs.js'
+import {
+  addJafComparisons,
+  getJafComparisons
+} from '~/src/repos/jaf-comparisons.js'
 
 async function createJaf(db, jaf) {
   const id = await addJaf(db, jaf)

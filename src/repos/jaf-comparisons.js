@@ -1,7 +1,7 @@
 import { ObjectId } from 'mongodb'
 
 async function addJafComparisons(db, baseJafId, comparisons) {
-  const mapped = comparisons.map(c => ({
+  const mapped = comparisons.map((c) => ({
     base_jaf_id: baseJafId,
     base_jaf_original_id: c.base_jaf_original_id,
     compared_jaf_original_id: c.compared_jaf_original_id,
@@ -9,15 +9,17 @@ async function addJafComparisons(db, baseJafId, comparisons) {
     profession: c.profession,
     comparison: c.comparison
   }))
-    
-  const { insertedIds } = await db.collection('jaf_comparisons')
+
+  const { insertedIds } = await db
+    .collection('jaf_comparisons')
     .insertMany(mapped)
 
   return insertedIds
 }
 
 async function getJafComparisons(db, baseJafId) {
-  const comparisons = await db.collection('jaf_comparisons')
+  const comparisons = await db
+    .collection('jaf_comparisons')
     .find({
       base_jaf_id: {
         $eq: baseJafId
@@ -25,8 +27,8 @@ async function getJafComparisons(db, baseJafId) {
     })
     .project({ comparison: 0 })
     .toArray()
-  
-  return comparisons.map(c => {
+
+  return comparisons.map((c) => {
     c.id = c._id
     delete c._id
 
@@ -35,9 +37,10 @@ async function getJafComparisons(db, baseJafId) {
 }
 
 async function getJafComparison(db, id) {
-  const comparison = await db.collection('jaf_comparisons')
+  const comparison = await db
+    .collection('jaf_comparisons')
     .findOne({ _id: ObjectId.createFromHexString(id) })
-  
+
   if (!comparison) {
     return null
   }
