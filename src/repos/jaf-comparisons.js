@@ -25,12 +25,25 @@ async function getJafComparisons(db, baseJafId) {
         $eq: baseJafId
       }
     })
-    .project({ comparison: 0 })
+    .project({
+      base_jaf_id: 1,
+      base_jaf_original_id: 1,
+      compared_jaf_original_id: 1,
+      name: 1,
+      profession: 1,
+      'comparison.summary.similarity_score': 1
+    })
     .toArray()
 
   return comparisons.map((c) => {
     c.id = c._id
     delete c._id
+
+    if (c.comparison && c.comparison.summary) {
+      c.similarity_score = c.comparison.summary.similarity_score
+
+      delete c.comparison
+    }
 
     return c
   })

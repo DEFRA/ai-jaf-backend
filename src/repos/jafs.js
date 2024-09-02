@@ -20,7 +20,9 @@ async function addJaf(db, jaf) {
 }
 
 async function getJafs(db, query) {
-  const jafs = await db.collection('jafs').find(query).toArray()
+  const jafs = await db.collection('jafs')
+    .find(query)
+    .toArray()
 
   return jafs.map((jaf) => {
     jaf.id = jaf._id
