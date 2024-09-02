@@ -26,7 +26,6 @@ services:
     image: redis:7.2.3-alpine3.18
     ports:
       - '6379:6379'
-    restart: always
     networks:
       - cdp-tenant
 
@@ -38,7 +37,6 @@ services:
       - 27017:27017
     volumes:
       - mongodb-data:/data
-    restart: always
 
   ai-jaf-backend:
     build: 

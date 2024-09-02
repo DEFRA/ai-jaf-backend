@@ -49,4 +49,6 @@ export const mongoDb = {
 
 async function createIndexes(db) {
   await db.collection('mongo-locks').createIndex({ id: 1 })
+  await db.collection('jafs').createIndex({ original_id: 1 }, { unique: true })
+  await db.collection('jaf_comparisons').createIndex({ base_jaf_id: 1 })
 }
