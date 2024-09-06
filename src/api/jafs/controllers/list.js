@@ -22,6 +22,6 @@ export const listJafsController = {
       return h.response().code(204)
     }
 
-    return h.response({ jafs }).code(200)
+    return h.response(jafs).code(200)
   }
 }
