@@ -8,12 +8,8 @@ module.exports = {
       extends: [
         'standard',
         'plugin:import/recommended',
-        'plugin:import/typescript',
-        'plugin:jsdoc/recommended-typescript-flavor',
         'plugin:n/recommended',
         'plugin:promise/recommended',
-        'plugin:@typescript-eslint/recommended-type-checked',
-        'plugin:@typescript-eslint/stylistic-type-checked',
         'prettier'
       ],
       env: {
@@ -42,13 +38,6 @@ module.exports = {
           }
         ],
         'no-console': 'error',
-
-        // Turn off strict type checking rules
-        '@typescript-eslint/no-unsafe-argument': 'off',
-        '@typescript-eslint/no-unsafe-assignment': 'off',
-        '@typescript-eslint/no-unsafe-call': 'off',
-        '@typescript-eslint/no-unsafe-member-access': 'off',
-        '@typescript-eslint/no-unsafe-return': 'off',
 
         // JSDoc blocks are optional by default
         'jsdoc/require-jsdoc': 'off',
@@ -149,7 +138,3 @@ module.exports = {
   ],
   root: true
 }
-
-/**
- * @import { ESLint } from 'eslint'
- */
